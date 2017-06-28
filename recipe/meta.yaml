@@ -21,6 +21,8 @@ requirements:
   run:
     - python
     - numpy
+    - scipy
+    - netcdf4
     - matplotlib
 
 build:
