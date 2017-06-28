@@ -1,0 +1,38 @@
+{% set name = "anuga" %}
+{% set version = "2.0.2" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/GeoscienceAustralia/anuga_core
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+    - cython
+    - netcdf4
+    # - gdal
+    - nomkl  # suggested fix for netcdf4 and libjpeg problem
+  run:
+    - python
+    - numpy
+    - matplotlib
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+test:
+  imports:
+    - anuga
+
+about:
+  home: https://csdms.colorado.edu/wiki/Model:Anuga
+  license: GPLv2
+  summary: ANUGA is a hydrodynamic modeling tool that allows users to model realistic flow problems in complex 2D geometries.
+  dev_url: https://github.com/GeoscienceAustralia/anuga_core
