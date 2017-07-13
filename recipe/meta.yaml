@@ -18,12 +18,16 @@ requirements:
     - netcdf4
     # - gdal
     - nomkl  # suggested fix for netcdf4 and libjpeg problem
+    - gcc
+    - libgcc
   run:
     - python
     - numpy
     - scipy
     - netcdf4
     - matplotlib
+    - gcc
+    - libgcc
 
 build:
   number: 0
