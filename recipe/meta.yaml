@@ -13,25 +13,22 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy
     - scipy
     - cython
     - netcdf4
-    # - gdal
-    - nomkl  # suggested fix for netcdf4 and libjpeg problem
-    - gcc
-    - libgcc
+    - clangxx_osx-64 [osx]
+    - llvm-openmp [osx]
+    - gxx_linux-64 [linux]
   run:
     - python
-    - numpy
     - scipy
     - netcdf4
     - matplotlib
-    - gcc
     - libgcc
+    - llvm-openmp [osx]
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 test:
