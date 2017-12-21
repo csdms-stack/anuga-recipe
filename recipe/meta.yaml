@@ -17,6 +17,7 @@ requirements:
     - cython
     - netcdf4
     - clangxx_osx-64 [osx]
+    - llvm-openmp [osx]
     - gxx_linux-64 [linux]
   run:
     - python
@@ -24,6 +25,7 @@ requirements:
     - netcdf4
     - matplotlib
     - libgcc
+    - llvm-openmp [osx]
 
 build:
   number: 1
