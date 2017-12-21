@@ -9,6 +9,7 @@ env:
   - TRAVIS_PYTHON_VERSION="2.7"
   - secure: "YYKA0WU1tDtFBWBLrYmxEZm5cNUHYUtDNSaZ4AZuC8tIUzlvPmip4hP/Er6QbjJKKO5R4+Syl639jELrLUYwo2ueXSGGhpnJ1euYMGViXZCogp07Mo+7V40NAaEvivqQ7WdK2hTHfcgCdSEhlauRXbnTjN5jcz2qAtQLsLjTTrA8v7hIZGFoQlDYCw5FutDcwxBuZpVEWlDKbWfrYk3bKnOOj6+drhoKy7q7BESxG+T7Gu1xIVxMuZ9lfF/+MsP7rraFIwKGW1XCzeFRc7hIyA7Gg0ZhVcLmirEBgBbQZRxTOGglgIfqRNDlhHJjx/biBXdrL6Co4Pqgg8nPwq8zWd/8Dnz52R0JN9qM8CMHH4yRIeRbhY9yNw0HmmEbFAd87RS5YA544+XqKOely3EVU1njqfcpfC3sQgKgCNQfsJb5sd5q3c+TgzFvZIMoJiX4gsGIuopJZRLztxLmui0fNUDL1ScLMeogVmJcAjbnnTi1fP9OOIB0E7/WtBiV0aKIXnDP98/H59VBN+kerRRQzJUeg6pTE7Xx4Cy/R+GUZ8pP0XY3SOcJjaIBDnOQ7wjuiJWgx5aBitPWhRRILlZFoy+CaRP5ji1NpeYBCHE50lEiN7Uc0zdf3eFlWsjIOAOsCZydZXpd0fitKbvNMNpFerzmGzC2T1m/EuGYbK3jHNo="
 sudo: false
+filter_secrets: false           # temporary fix?
 before_install:
 - |
   if [[ $TRAVIS_OS_NAME == "osx" ]]; then
