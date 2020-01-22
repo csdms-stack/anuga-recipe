@@ -1,42 +1,47 @@
 {% set name = "anuga" %}
-{% set version = "2.0.2" %}
+{% set version = "2.0.3" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  git_url: https://github.com/GeoscienceAustralia/anuga_core
+  git_url: https://github.com/GeoscienceAustralia/{{ name }}_core
   git_rev: {{ version }}
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
-    - python
-    - setuptools
-    - scipy
+    - {{ compiler('cxx') }}
+  host:
+    - python=2.7
+    - numpy
     - cython
-    - netcdf4
-    - clangxx_osx-64 [osx]
-    - llvm-openmp [osx]
-    - gxx_linux-64 [linux]
   run:
-    - python
+    - python=2.7
+    - numpy
     - scipy
     - netcdf4
     - matplotlib
-    - libgcc
-    - llvm-openmp [osx]
-
-build:
-  number: 1
-  script: python setup.py install --single-version-externally-managed --record record.txt
+    - gdal
+    - dill
 
 test:
   imports:
     - anuga
 
 about:
-  home: https://csdms.colorado.edu/wiki/Model:Anuga
+  home: https://anuga.anu.edu.au/
   license: GPLv2
-  summary: ANUGA is a hydrodynamic modeling tool that allows users to model realistic flow problems in complex 2D geometries.
+  summary: AnuGA for the simulation of the shallow water equation
+  description: |
+    AnuGA is a hydrodynamic modeling tool that allows users to model
+    realistic flow problems in complex 2D geometries. In particular it
+    can be used to model tsunamis and floods. AnuGA is developed at
+    Geoscience Australia and Mathematical Sciences Institute at the
+    Australian National University.
   dev_url: https://github.com/GeoscienceAustralia/anuga_core
+  doc_url: https://github.com/GeoscienceAustralia/anuga_core/blob/master/doc/anuga_user_manual.pdf
